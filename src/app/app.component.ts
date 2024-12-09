@@ -4,11 +4,12 @@ import { FirebaseModule } from './modules/firebase/firebase.module';
 import { collection, collectionData, Firestore } from '@angular/fire/firestore';
 import { Observable, of } from 'rxjs';
 import { FirestoreService } from './services/firestore.service';
+import { LayoutDefaultComponent } from './layouts/layout-default/layout-default.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FirebaseModule],
+  imports: [RouterOutlet, FirebaseModule, LayoutDefaultComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
