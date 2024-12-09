@@ -1,1 +1,17 @@
-<p>todo-list works!</p>
+<div class="todo-list">
+  <div class="row todo-item" *ngFor="let todo of allTodos$ | async">
+    <div class="col-11">{{ todo.description }}</div>
+    <div class="col-1">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          name=""
+          id=""
+          type="checkbox"
+          value="checkedValue"
+          aria-label="Text for screen reader"
+        />
+      </div>
+    </div>
+  </div>
+</div>
