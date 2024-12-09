@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { BaseHeaderComponent } from '../../bases/base-header/base-header.component';
 import { BaseBodyComponent } from '../../bases/base-body/base-body.component';
 import { BaseFooterComponent } from '../../bases/base-footer/base-footer.component';
@@ -10,4 +10,6 @@ import { BaseFooterComponent } from '../../bases/base-footer/base-footer.compone
   templateUrl: './layout-default.component.html',
   styleUrl: './layout-default.component.scss',
 })
-export class LayoutDefaultComponent {}
+export class LayoutDefaultComponent {
+  @Input() bodyContainer: string = 'home';
+}

@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
+import { LayoutDefaultComponent } from '../../layouts/layout-default/layout-default.component';
 
 @Component({
   selector: 'app-todo',
   standalone: true,
-  imports: [],
+  imports: [LayoutDefaultComponent],
   templateUrl: './todo.component.html',
-  styleUrl: './todo.component.scss'
+  styleUrl: './todo.component.scss',
 })
-export class TodoComponent {
-
-}
+export class TodoComponent {}
