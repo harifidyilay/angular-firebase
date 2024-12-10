@@ -1,14 +1,17 @@
 <div class="todo-form">
-  <div id="div-input-todo">
-    <input
-      class="form-control"
-      type="text"
-      placeholder="Your task ..."
-      aria-label="Task"
-    />
-  </div>
+  <form [formGroup]="TodoForm" (ngSubmit)="onSubmit()">
+    <div id="div-input-todo">
+      <input
+        class="form-control"
+        type="text"
+        formControlName="description"
+        placeholder="Your task ..."
+        aria-label="Task"
+      />
+    </div>
 
-  <div id="div-btn-add">
-    <button type="button" class="btn btn-primary btn-add">ADD TODO</button>
-  </div>
+    <div id="div-btn-add">
+      <button type="submit" class="btn btn-primary btn-add">ADD TODO</button>
+    </div>
+  </form>
 </div>

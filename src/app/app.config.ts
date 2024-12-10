@@ -10,6 +10,7 @@ import { environment } from '../environments/environments';
 import { provideState, provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { userFeatureKey, userReducer } from './states/user/user.reducer';
+import { todoFeatureKey, todoReducer } from './states/todo/todo.reducer';
 // import { todoReducer } from './states/todos/todo.reducer';
 
 export const appConfig: ApplicationConfig = {
@@ -25,6 +26,7 @@ export const appConfig: ApplicationConfig = {
     // Initialise ngrx
     provideStore(),
     provideState({ name: userFeatureKey, reducer: userReducer }),
+    provideState({ name: todoFeatureKey, reducer: todoReducer }),
     provideStoreDevtools({ maxAge: 25, logOnly: false }),
   ],
 };

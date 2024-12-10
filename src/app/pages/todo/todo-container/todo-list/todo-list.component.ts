@@ -4,6 +4,7 @@ import { AsyncPipe, NgFor } from '@angular/common';
 import { Observable, of } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { selectUsers } from '../../../../states/user/user.selectors';
+import { selectTodos } from '../../../../states/todo/todo.selectors';
 
 @Component({
   selector: 'app-todo-list',
@@ -14,14 +15,14 @@ import { selectUsers } from '../../../../states/user/user.selectors';
 })
 export class TodoListComponent implements OnInit {
   // listeNotes = LIST_NOTES;
-  public allTodos$ = of(LIST_NOTES);
-  // public allTodos$: Observable<Todo[]>;
-
+  // public allTodos$ = of(LIST_NOTES);
+  public allTodos$: Observable<any> = of([]);
   public users$: Observable<any> = of([]);
 
   constructor(private store: Store) {}
 
   ngOnInit(): void {
     this.users$ = this.store.select(selectUsers);
+    this.allTodos$ = this.store.select(selectTodos);
   }
 }
