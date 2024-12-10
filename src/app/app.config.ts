@@ -7,6 +7,10 @@ import { provideClientHydration } from '@angular/platform-browser';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { environment } from '../environments/environments';
+import { provideState, provideStore } from '@ngrx/store';
+import { provideStoreDevtools } from '@ngrx/store-devtools';
+import { userFeatureKey, userReducer } from './states/user/user.reducer';
+// import { todoReducer } from './states/todos/todo.reducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -14,7 +18,13 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideClientHydration(),
 
+    // Initialise firebase
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
+
+    // Initialise ngrx
+    provideStore(),
+    provideState({ name: userFeatureKey, reducer: userReducer }),
+    provideStoreDevtools({ maxAge: 25, logOnly: false }),
   ],
 };
