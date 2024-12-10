@@ -4,7 +4,9 @@ import { loadUsers, usersLoaded } from './user.actions';
 
 export const userFeatureKey = 'users';
 
-export const initialState: User[] = [];
+export const initialState: User[] = [
+  { id: '0', name: 'admin', email: 'admin@yopmail.com' },
+];
 
 export const userReducer = createReducer(
   initialState,
