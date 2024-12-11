@@ -1,6 +1,7 @@
 export interface AppState {
   users: User[];
   todos: Todo[];
+  auth: Auth;
 }
 
 export interface User {
@@ -13,4 +14,9 @@ export interface Todo {
   id: string;
   description: string;
   status: boolean;
+}
+
+export interface Auth {
+  token: string;
+  expiresIn: number;
 }

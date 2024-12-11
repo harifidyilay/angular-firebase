@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { selectUsers } from '../../../../states/user/user.selectors';
 import { selectTodos } from '../../../../states/todo/todo.selectors';
+import { loadTodos } from '../../../../states/todo/todo.actions';
 
 @Component({
   selector: 'app-todo-list',
@@ -19,10 +20,16 @@ export class TodoListComponent implements OnInit {
   public allTodos$: Observable<any> = of([]);
   public users$: Observable<any> = of([]);
 
-  constructor(private store: Store) {}
-
-  ngOnInit(): void {
+  constructor(private store: Store) {
     this.users$ = this.store.select(selectUsers);
     this.allTodos$ = this.store.select(selectTodos);
+  }
+
+  ngOnInit(): void {
+    this.store.dispatch(loadTodos());
+  }
+
+  clickReloadListTask() {
+    this.store.dispatch(loadTodos());
   }
 }

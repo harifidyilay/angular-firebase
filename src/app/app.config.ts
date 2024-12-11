@@ -11,7 +11,10 @@ import { provideState, provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { userFeatureKey, userReducer } from './states/user/user.reducer';
 import { todoFeatureKey, todoReducer } from './states/todo/todo.reducer';
-// import { todoReducer } from './states/todos/todo.reducer';
+import { authFeatureKey, authReducer } from './states/auth/auth.reducer';
+import { provideEffects } from '@ngrx/effects';
+import { TodoEffects } from './states/todo/todo.effects';
+import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -25,8 +28,15 @@ export const appConfig: ApplicationConfig = {
 
     // Initialise ngrx
     provideStore(),
+    provideStoreDevtools({ maxAge: 25, logOnly: false }),
+
     provideState({ name: userFeatureKey, reducer: userReducer }),
     provideState({ name: todoFeatureKey, reducer: todoReducer }),
-    provideStoreDevtools({ maxAge: 25, logOnly: false }),
+    provideState({ name: authFeatureKey, reducer: authReducer }),
+
+    // provideEffects([TodoEffects]),
+    provideEffects(TodoEffects),
+
+    provideHttpClient(),
   ],
 };

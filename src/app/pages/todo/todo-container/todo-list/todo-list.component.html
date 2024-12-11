@@ -1,3 +1,4 @@
+<button class="btn btn-info" (click)="clickReloadListTask()">Reload</button>
 <div class="todo-list">
   <div class="row todo-item" *ngFor="let todo of allTodos$ | async">
     <div class="col-11">{{ todo.description }}</div>

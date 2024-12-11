@@ -9,4 +9,6 @@ export const environment = {
     appId: '1:279859546807:web:14c52f35c6d528ff391b32',
     measurementId: 'G-XTVQ6KV5EK',
   },
+  // Prod Endpoint API /  must be load balancing ...
+  baseUrlPhp: 'http://localhost:8082',
 };
